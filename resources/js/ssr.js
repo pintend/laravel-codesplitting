@@ -11,7 +11,11 @@ createServer((page) =>
         page,
         render: renderToString,
         title: (title) => `${title} - ${appName}`,
-        resolve: (name) => require(`./Pages/${name}.vue`),
+        resolve: (name) => {
+            let module = name.split('/')[0];
+            let component = name.split(module + '/')[1];
+            return require(`./${module}/Pages/${component}.vue`);
+        },
         setup({ app, props, plugin }) {
             return createSSRApp({ render: () => h(app, props) })
                 .use(plugin)

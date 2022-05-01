@@ -2,12 +2,18 @@
     "private": true,
     "scripts": {
         "dev": "npm run development",
-        "development": "mix",
-        "watch": "mix watch",
-        "watch-poll": "mix watch -- --watch-options-poll=1000",
-        "hot": "mix watch --hot",
+        "development": "mix --mix-config=webpack.main.mix.js && mix --mix-config=webpack.admin.mix.js",
+
+        "watch-main": "mix watch --mix-config=webpack.main.mix.js",
+        "watch-poll-main": "mix watch -- --watch-options-poll=1000 --mix-config=webpack.main.mix.js",
+        "hot-main": "mix watch --hot --mix-config=webpack.main.mix.js",
+
+        "watch-admin": "mix watch --mix-config=webpack.admin.mix.js",
+        "watch-poll-admin": "mix watch -- --watch-options-poll=1000 --mix-config=webpack.admin.mix.js",
+        "hot-admin": "mix watch --hot --mix-config=webpack.admin.mix.js",
+
         "prod": "npm run production",
-        "production": "mix --production --mix-config=webpack.ssr.mix.js && mix --production"
+        "production": "mix --production --mix-config=webpack.ssr.mix.js && mix --production --mix-config=webpack.main.mix.js && mix --production --mix-config=webpack.admin.mix.js"
     },
     "devDependencies": {
         "@inertiajs/inertia": "^0.11.0",

@@ -33,8 +33,12 @@ class RouteServiceProvider extends ServiceProvider
                 ->prefix('api')
                 ->group(base_path('routes/api.php'));
 
-            Route::middleware('web')
-                ->group(base_path('routes/web.php'));
+            Route::middleware(['web', \App\Http\Middleware\HandleMainInertiaRequests::class,])
+                ->group(base_path('routes/main/web.php'));
+
+            Route::middleware(['web', \App\Http\Middleware\HandleAdminInertiaRequests::class,])
+                ->prefix('admin')
+                ->group(base_path('routes/admin/web.php'));
         });
     }
 
