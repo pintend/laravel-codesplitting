@@ -38,6 +38,7 @@ class RouteServiceProvider extends ServiceProvider
 
             Route::middleware(['web', \App\Http\Middleware\HandleAdminInertiaRequests::class,])
                 ->prefix('admin')
+                ->as('admin.')
                 ->group(base_path('routes/admin/web.php'));
         });
     }

@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="{{ mix('css/admin/admin.css') }}">
 
         <!-- Scripts -->
-        @routes
+        @routes('admin')
         <script src="{{ mix('js/admin/manifest.js') }}" defer></script>
         <script src="{{ mix('js/admin/vendor.js') }}" defer></script>
         <script src="{{ mix('js/admin/app.js') }}" defer></script>
