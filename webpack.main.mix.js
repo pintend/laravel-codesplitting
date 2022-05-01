@@ -15,6 +15,7 @@ require('laravel-mix-merge-manifest');
 
 mix.js('resources/js/Main/app.js', 'public/js/main')
     .vue()
+    .extract()
     .postCss('resources/css/main.css', 'public/css/main', [
         require('postcss-import'),
         require('tailwindcss'),

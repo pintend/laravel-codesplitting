@@ -14,6 +14,8 @@
 
         <!-- Scripts -->
         @routes
+        <script src="{{ mix('js/admin/manifest.js') }}" defer></script>
+        <script src="{{ mix('js/admin/vendor.js') }}" defer></script>
         <script src="{{ mix('js/admin/app.js') }}" defer></script>
         @inertiaHead
     </head>
